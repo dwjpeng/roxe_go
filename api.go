@@ -579,6 +579,11 @@ func (api *API) GetTransaction(ctx context.Context, id string) (out *Transaction
 	return
 }
 
+func (api *API) GetTransactionWithHint(ctx context.Context, id string, blocknum int64) (out *TransactionResp, err error) {
+	err = api.call(ctx, "history", "get_transaction", M{"id": id, "block_num_hint": blocknum}, &out)
+	return
+}
+
 func (api *API) GetTransactionRaw(ctx context.Context, id string) (out json.RawMessage, err error) {
 	err = api.call(ctx, "history", "get_transaction", M{"id": id}, &out)
 	return
