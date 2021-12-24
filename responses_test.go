@@ -91,7 +91,7 @@ func TestUnmarshalBlockResp(t *testing.T) {
 	assert.Equal(t, JSONTime{expiration}, transaction.Expiration)
 	assert.Equal(t, uint8(0), transaction.MaxCPUUsageMS)
 	assert.Equal(t, Varuint32(0), transaction.MaxNetUsageWords)
-	assert.Equal(t, uint32(50301), transaction.RefBlockNum)
+	assert.Equal(t, uint16(50301), transaction.RefBlockNum)
 	assert.Equal(t, uint32(2432041012), transaction.RefBlockPrefix)
 	assert.Empty(t, transaction.Extensions)
 
