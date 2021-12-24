@@ -22,7 +22,7 @@ import (
 
 type TransactionHeader struct {
 	Expiration     JSONTime `json:"expiration"`
-	RefBlockNum    uint16   `json:"ref_block_num"`
+	RefBlockNum    uint32   `json:"ref_block_num"`
 	RefBlockPrefix uint32   `json:"ref_block_prefix"`
 
 	MaxNetUsageWords Varuint32 `json:"max_net_usage_words"`
@@ -211,7 +211,7 @@ func (tx *Transaction) setRefBlock(blockID []byte) {
 	if len(blockID) == 0 {
 		return
 	}
-	tx.RefBlockNum = uint16(binary.BigEndian.Uint32(blockID[:4]))
+	tx.RefBlockNum = binary.BigEndian.Uint32(blockID[:4])
 	tx.RefBlockPrefix = binary.LittleEndian.Uint32(blockID[8:16])
 }
 

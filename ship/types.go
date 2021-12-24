@@ -99,7 +99,7 @@ type TableDeltaV0 struct {
 
 type PartialTransactionV0 struct {
 	Expiration            uint32
-	RefBlockNum           uint16
+	RefBlockNum           uint32
 	RefBlockPrefix        uint32
 	MaxNetUsageWords      roxe.Varuint32
 	MaxCpuUsageMs         uint8

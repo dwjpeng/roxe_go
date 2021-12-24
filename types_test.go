@@ -412,7 +412,7 @@ func TestSetRefBlock(t *testing.T) {
 	//                                    ^^^^        ^^....^^
 	require.NoError(t, err)
 	tx.setRefBlock(blockID)
-	assert.Equal(t, uint16(0xcf62), tx.RefBlockNum) // 53090
+	assert.Equal(t, uint32(0xcf62), tx.RefBlockNum) // 53090
 	assert.Equal(t, uint32(0xd80b0950), tx.RefBlockPrefix)
 }
 
